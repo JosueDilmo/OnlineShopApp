@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "947636871312",
+    "project_id": "onlineshopapp-2270a",
+    "storage_bucket": "onlineshopapp-2270a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:947636871312:android:668965863b5d71c539b815",
+        "android_client_info": {
+          "package_name": "com.josue.onlineshopapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "947636871312-rtdc60cn5uj0t0nc0fg8iunbkahq32oc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBNEhgYG7fWs2gGN9Gf2jlBTYdfpPrgon8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "947636871312-rtdc60cn5uj0t0nc0fg8iunbkahq32oc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
