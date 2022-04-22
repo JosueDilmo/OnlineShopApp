@@ -9,13 +9,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.OnlineShopApp">
-
+        <activity
+            android:name=".activities.RegisterActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.myNoActionBar" />
         <activity
             android:name=".activities.LoginActivity"
             android:exported="false"
-            android:theme="@style/Theme.myNoActionBar">
-        </activity>
-
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.myNoActionBar" />
         <activity
             android:name=".activities.SplashScreen"
             android:exported="true"
@@ -23,14 +26,10 @@
             android:theme="@style/Theme.myNoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity
-            android:name=".activities.MainActivity">
-        </activity>
+        <activity android:name=".activities.MainActivity" />
     </application>
 
 </manifest>
