@@ -57,9 +57,8 @@ Project - Online Shopping App
 - A little help from: https://developer.android.com/
 - Google Fonts: https://fonts.google.com/specimen/Montserrat?query=montse
 - OkHttp Documentation: https://square.github.io/okhttp/
-- Firebase Connection: https://www.youtube.com/watch?v=xu3bHQWD6A0
-- Bottom Nav View: https://www.youtube.com/watch?v=Chso6xrJ6aU
-- Login page, splash page and others functions: https://www.youtube.com/watch?v=hoK9OOP1KZw&t=396s
+- Firebase Documentation: https://firebase.google.com/docs/android/setup?authuser=0&%3Bhl=pt&hl=pt
+- Fake Store Documentation: https://fakestoreapi.com/docs
 
 ## Copyright Disclaimer:
 Please note that this app project is part of Dorset College's sophomore semester final project, however, it may contain some part of code that may be copyrighted, if so, please contact me so I can delete or give due to copyright. All the people were duly referenced in the "References" section above.
