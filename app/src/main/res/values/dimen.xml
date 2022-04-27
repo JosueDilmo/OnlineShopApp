@@ -2,7 +2,6 @@
 <resources>
     <dimen name="splash_title_text_size">20sp</dimen>
     <dimen name="button_background_radius">10dp</dimen>
-
     <dimen name="auth_header_image_height">200dp</dimen>
     <dimen name="title_textSize">18sp</dimen>
     <dimen name="et_textSize">16sp</dimen>
@@ -12,12 +11,15 @@
     <dimen name="btn_textSize">18sp</dimen>
     <dimen name="btn_padding">8dp</dimen>
     <dimen name="lbl_text_view_textSize">16sp</dimen>
-
     <dimen name="toolbar_title_paddingStart">25dp</dimen>
     <dimen name="toolbar_title_text_size">16sp</dimen>
     <dimen name="txt_terms_and_condition_marginStart">10dp</dimen>
     <dimen name="txt_terms_and_condition_textSize">14sp</dimen>
     <dimen name="button_paddingTop_bottom">14sp</dimen>
+    <dimen name="progress_dialog_content_padding">10dp</dimen>
+    <dimen name="progress_bar_size">50dp</dimen>
+    <dimen name="progress_text_marginStart">16dp</dimen>
+    <dimen name="progress_text_size">16sp</dimen>
 
 
 </resources>

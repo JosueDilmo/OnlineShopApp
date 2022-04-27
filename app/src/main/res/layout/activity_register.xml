@@ -175,7 +175,7 @@
                     android:layout_height="wrap_content"
                     android:checked="false" />
 
-                <com.josue.onlineshopapp.utils.MSPEditText
+                <com.josue.onlineshopapp.utils.MSPTextView
                     android:id="@+id/agree_terms_and_conditions"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -215,7 +215,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/btn_register">
 
-                <com.josue.onlineshopapp.utils.MSPEditText
+                <com.josue.onlineshopapp.utils.MSPTextView
                     android:id="@+id/already_have_account"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

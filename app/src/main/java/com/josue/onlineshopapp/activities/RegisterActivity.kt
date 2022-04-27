@@ -10,6 +10,10 @@ import android.widget.Button
 import android.widget.CheckBox
 import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.auth.AuthResult
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.josue.onlineshopapp.R
 
 class RegisterActivity : BaseActivity() {
@@ -30,15 +34,12 @@ class RegisterActivity : BaseActivity() {
 
         setupActionBar()
 
-        val loginNow = findViewById<TextView>(R.id.to_login)
-        loginNow.setOnClickListener{
-            // Launch register activity screen
-            val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
-            startActivity(intent)
+        findViewById<TextView>(R.id.to_login).setOnClickListener{
+            onBackPressed()
         }
 
         findViewById<Button>(R.id.btn_register).setOnClickListener{
-            validateRegisterDetails()
+            registerUser()
         }
 
     }
@@ -59,7 +60,7 @@ class RegisterActivity : BaseActivity() {
     }
 
 
-     //A function to validate the entries of a new user.
+     //function to validate the entries of a new user.
     private fun validateRegisterDetails(): Boolean {
         return when {
             TextUtils.isEmpty(findViewById<TextView>(R.id.et_first_name).text.toString().trim { it <= ' ' }) -> {
@@ -97,11 +98,51 @@ class RegisterActivity : BaseActivity() {
                 false
             }
             else -> {
-                showErrorSnackBar(resources.getString(R.string.registry_successful), false)
                 true
             }
         }
     }
 
+    //function to register the user with email and password using FirebaseAuth.
+    private fun registerUser() {
+
+        //check with validateRegisterDetails if the entries are valid or not.
+        if (validateRegisterDetails()) {
+
+            //show progress dialog
+            showProgressDialog(resources.getString(R.string.please_wait))
+
+            val email: String = findViewById<TextView>(R.id.et_email).text.toString().trim { it <= ' ' }
+            val password: String = findViewById<TextView>(R.id.et_password).text.toString().trim { it <= ' ' }
+
+            //create an instance and register a user with email and password.
+            FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(
+                    OnCompleteListener<AuthResult> { task ->
+
+                        //hide progress dialog
+                        hideProgressDialog()
+
+                        //if the registration is successfully done
+                        if (task.isSuccessful) {
+                            //Firebase registered user
+                            val firebaseUser: FirebaseUser = task.result!!.user!!
+
+                            showErrorSnackBar(
+                                "You are registered successfully. Your user id is ${firebaseUser.uid}",
+                                false
+                            )
+
+                            //sending the user back to login act
+                            FirebaseAuth.getInstance().signOut()
+                            finish()
+
+                        } else {
+                            //if the registering is not successful then show error message.
+                            showErrorSnackBar(task.exception!!.message.toString(), true)
+                        }
+                    })
+        }
+    }
 
 }
