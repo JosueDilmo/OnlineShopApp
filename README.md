@@ -57,6 +57,7 @@ Project - Online Shopping App
 - A little help from: https://developer.android.com/
 - Google Fonts: https://fonts.google.com/specimen/Montserrat?query=montse
 - OkHttp Documentation: https://square.github.io/okhttp/
+- Picasso GitHub: https://github.com/square/picasso
 - Firebase Documentation: https://firebase.google.com/docs/android/setup?authuser=0&%3Bhl=pt&hl=pt
 - Fake Store Documentation: https://fakestoreapi.com/docs
 
