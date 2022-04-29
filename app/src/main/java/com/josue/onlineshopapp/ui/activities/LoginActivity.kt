@@ -1,11 +1,9 @@
-package com.josue.onlineshopapp.activities
+package com.josue.onlineshopapp.ui.activities
 
 import android.content.Intent
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
-import android.util.Log
 import android.view.View
 import android.view.WindowInsets
 import android.view.WindowManager
@@ -17,7 +15,6 @@ import com.josue.onlineshopapp.R
 import com.josue.onlineshopapp.firestore.FirestoreClass
 import com.josue.onlineshopapp.models.User
 import com.josue.onlineshopapp.utils.Constants
-import org.w3c.dom.Text
 
 class LoginActivity : BaseActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,11 +46,6 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
         //progress dialog
         hideProgressDialog()
 
-        //print user details
-        Log.i("First Name: ", user.firstName)
-        Log.i("Last Name: ", user.lastName)
-        Log.i("Email: ", user.email)
-
         //checking if profile is incomplete if true send to UserProfileActivity
         if (user.profileComplete == 0) {
             val intent = Intent(this@LoginActivity, UserProfileActivity::class.java)
@@ -61,7 +53,7 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
             startActivity(intent)
         } else {
             //if completed redirect user to Main Screen
-            startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+            startActivity(Intent(this@LoginActivity, DashboardActivity::class.java))
         }
         finish()
 

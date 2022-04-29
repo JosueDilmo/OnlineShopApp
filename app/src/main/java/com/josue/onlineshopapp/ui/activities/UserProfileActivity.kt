@@ -1,7 +1,6 @@
-package com.josue.onlineshopapp.activities
+package com.josue.onlineshopapp.ui.activities
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.View
@@ -16,16 +15,20 @@ import com.squareup.picasso.Picasso
 class UserProfileActivity : BaseActivity(), View.OnClickListener {
 
    private lateinit var mUserDetails: User
+   private lateinit var mUserProfileImage: ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_profile)
 
         //picasso for the random pics
-        val imageView = findViewById<ImageView>(R.id.iv_user_photo)
+        mUserProfileImage = findViewById(R.id.iv_user_photo)
         Picasso.get()
             .load("https://thispersondoesnotexist.com/image")
-            .into(imageView)
+            .fit()
+            .centerInside()
+            .into(mUserProfileImage)
+
 
         if (intent.hasExtra(Constants.EXTRA_USER_DETAILS)) {
             //user details from intent as ParcelableExtra
@@ -48,7 +51,7 @@ class UserProfileActivity : BaseActivity(), View.OnClickListener {
 
     }
 
-    //enable Views
+    //enable Views and save
     override fun onClick(v: View?) {
        if (v != null) {
            when (v.id) {
@@ -79,6 +82,10 @@ class UserProfileActivity : BaseActivity(), View.OnClickListener {
                        //key -- value
                        userHashMap[Constants.GENDER] = gender
 
+                       //key -- value
+                       //if profile completed change to 1 == complete
+                       userHashMap[Constants.COMPLETE_PROFILE] = 1
+
                        //progress dialog
                        showProgressDialog(resources.getString(R.string.please_wait))
 
@@ -107,8 +114,6 @@ class UserProfileActivity : BaseActivity(), View.OnClickListener {
         finish()
     }
 
-
-
     //validate User Details in this case Mobile Number
     private fun validateUserProfileDetails(): Boolean {
         return when {
@@ -121,4 +126,5 @@ class UserProfileActivity : BaseActivity(), View.OnClickListener {
             }
         }
     }
+
 }

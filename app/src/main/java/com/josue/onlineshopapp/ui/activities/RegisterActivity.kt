@@ -1,6 +1,5 @@
-package com.josue.onlineshopapp.activities
+package com.josue.onlineshopapp.ui.activities
 
-import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.text.TextUtils

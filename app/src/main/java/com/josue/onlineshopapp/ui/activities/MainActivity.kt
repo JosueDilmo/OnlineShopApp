@@ -1,4 +1,4 @@
-package com.josue.onlineshopapp.activities
+package com.josue.onlineshopapp.ui.activities
 
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity

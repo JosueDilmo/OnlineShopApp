@@ -1,13 +1,18 @@
-package com.josue.onlineshopapp.activities
+package com.josue.onlineshopapp.ui.activities
 
 import android.app.Dialog
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.google.android.material.snackbar.Snackbar
 import com.josue.onlineshopapp.R
+import android.os.Handler
 
 open class BaseActivity : AppCompatActivity() {
+
+    //double back pressed to exit
+    private var doubleBackToExitPressedOnce = false
 
     //global instance for progress dialog
     private lateinit var mProgressDialog: Dialog
@@ -25,7 +30,6 @@ open class BaseActivity : AppCompatActivity() {
         }
         snackBar.show()
     }
-
 
     //function used to show the progress dialog message to user
     fun showProgressDialog(text: String) {
@@ -45,8 +49,25 @@ open class BaseActivity : AppCompatActivity() {
         mProgressDialog.show()
     }
 
-    //This function is used to dismiss the progress dialog if it is visible to user
+    //function is used to dismiss the progress dialog if it is visible to user
     fun hideProgressDialog() {
         mProgressDialog.dismiss()
+    }
+
+    //fun to for back pressed to close
+    fun doubleBackToExit(){
+
+        if (doubleBackToExitPressedOnce) {
+            super.onBackPressed()
+            return
+        }
+
+        this.doubleBackToExitPressedOnce = true
+
+        Toast.makeText(this, resources.getString(R.string.please_click_back_again_to_exit), Toast.LENGTH_SHORT).show()
+
+        //if pressed back twice in 2s app will be closed
+        @Suppress("DEPRECATION")
+        Handler().postDelayed({doubleBackToExitPressedOnce = false}, 2000)
     }
 }

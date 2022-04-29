@@ -1,4 +1,4 @@
-package com.josue.onlineshopapp.activities
+package com.josue.onlineshopapp.ui.activities
 
 import android.content.Intent
 import android.os.Build
@@ -26,8 +26,8 @@ class SplashScreen : AppCompatActivity() {
         @Suppress("DEPRECATION")
         Handler().postDelayed(
             {
-                //launch main activity
-                startActivity(Intent(this@SplashScreen, LoginActivity::class.java))
+                //launch Dashboard activity
+                startActivity(Intent(this@SplashScreen, DashboardActivity::class.java))
                 //call to finish activity
                 finish()
             },

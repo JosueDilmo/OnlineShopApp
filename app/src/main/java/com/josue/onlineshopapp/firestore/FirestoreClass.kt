@@ -7,9 +7,9 @@ import android.util.Log
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
-import com.josue.onlineshopapp.activities.LoginActivity
-import com.josue.onlineshopapp.activities.RegisterActivity
-import com.josue.onlineshopapp.activities.UserProfileActivity
+import com.josue.onlineshopapp.ui.activities.LoginActivity
+import com.josue.onlineshopapp.ui.activities.RegisterActivity
+import com.josue.onlineshopapp.ui.activities.UserProfileActivity
 import com.josue.onlineshopapp.models.User
 import com.josue.onlineshopapp.utils.Constants
 
@@ -136,5 +136,6 @@ class FirestoreClass {
     }
 
 
-
 }
+
+
