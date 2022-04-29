@@ -27,25 +27,25 @@ open class BaseActivity : AppCompatActivity() {
     }
 
 
-    //function used to show the progress dialog message to user.
+    //function used to show the progress dialog message to user
     fun showProgressDialog(text: String) {
         mProgressDialog = Dialog(this)
 
-        /*Set the screen content from a layout resource.
-        The resource will be inflated, adding all top-level views to the screen.*/
+        //Set the screen content from a layout resource
+        //The resource will be inflated, adding all top-level views to the screen
         mProgressDialog.setContentView(R.layout.dialog_progress)
 
         mProgressDialog.findViewById<TextView>(R.id.progress_text).text = text
 
-        //user can't cancel.
+        //user can't cancel
         mProgressDialog.setCancelable(false)
         mProgressDialog.setCanceledOnTouchOutside(false)
 
-        //Start the dialog and display it on screen.
+        //Start the dialog and display it on screen
         mProgressDialog.show()
     }
 
-    //This function is used to dismiss the progress dialog if it is visible to user.
+    //This function is used to dismiss the progress dialog if it is visible to user
     fun hideProgressDialog() {
         mProgressDialog.dismiss()
     }

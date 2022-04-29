@@ -10,22 +10,27 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.OnlineShopApp">
         <activity
+            android:name=".activities.UserProfileActivity"
+            android:exported="false"
+            android:theme="@style/Theme.myNoActionBar"/>
+        <activity
+            android:name=".activities.ForgotPasswordActivity"
+            android:exported="false"
+            android:theme="@style/Theme.myNoActionBar" />
+        <activity
             android:name=".activities.BaseActivity"
             android:exported="false" />
         <activity
             android:name=".activities.RegisterActivity"
             android:exported="false"
-            android:screenOrientation="portrait"
             android:theme="@style/Theme.myNoActionBar" />
         <activity
             android:name=".activities.LoginActivity"
             android:exported="false"
-            android:screenOrientation="portrait"
             android:theme="@style/Theme.myNoActionBar" />
         <activity
             android:name=".activities.SplashScreen"
             android:exported="true"
-            android:screenOrientation="portrait"
             android:theme="@style/Theme.myNoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

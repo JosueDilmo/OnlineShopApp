@@ -3,12 +3,19 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/DELL/Desktop/Josue/BSC2-0921-Semester2/MobileApp1/OnlineShopApp/app/src/main/res/drawable-v24/app_gradient_color_background.xml" value="0.2595" />
+        <entry key="..\:/Users/DELL/Desktop/Josue/BSC2-0921-Semester2/MobileApp1/OnlineShopApp/app/src/main/res/drawable-v24/drawable_gender_tab_selector.xml" value="0.2595" />
+        <entry key="..\:/Users/DELL/Desktop/Josue/BSC2-0921-Semester2/MobileApp1/OnlineShopApp/app/src/main/res/drawable-v24/drawable_gender_tab_text_color_selector.xml" value="0.2595" />
+        <entry key="..\:/Users/DELL/Desktop/Josue/BSC2-0921-Semester2/MobileApp1/OnlineShopApp/app/src/main/res/drawable-v24/user_image_background.xml" value="0.2595" />
         <entry key="..\:/Users/DELL/Desktop/Josue/BSC2-0921-Semester2/MobileApp1/OnlineShopApp/app/src/main/res/drawable/button_background.xml" value="0.2435" />
+        <entry key="..\:/Users/DELL/Desktop/Josue/BSC2-0921-Semester2/MobileApp1/OnlineShopApp/app/src/main/res/drawable/ic_black_color_arrow_back_24.xml" value="0.2595" />
         <entry key="..\:/Users/DELL/Desktop/Josue/BSC2-0921-Semester2/MobileApp1/OnlineShopApp/app/src/main/res/layout/activity_base.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/DELL/Desktop/Josue/BSC2-0921-Semester2/MobileApp1/OnlineShopApp/app/src/main/res/layout/activity_forgot_password.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/DELL/Desktop/Josue/BSC2-0921-Semester2/MobileApp1/OnlineShopApp/app/src/main/res/layout/activity_login.xml" value="0.2" />
         <entry key="..\:/Users/DELL/Desktop/Josue/BSC2-0921-Semester2/MobileApp1/OnlineShopApp/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/DELL/Desktop/Josue/BSC2-0921-Semester2/MobileApp1/OnlineShopApp/app/src/main/res/layout/activity_register.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/DELL/Desktop/Josue/BSC2-0921-Semester2/MobileApp1/OnlineShopApp/app/src/main/res/layout/activity_splash_screen.xml" value="0.4" />
+        <entry key="..\:/Users/DELL/Desktop/Josue/BSC2-0921-Semester2/MobileApp1/OnlineShopApp/app/src/main/res/layout/activity_user_profile.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/DELL/Desktop/Josue/BSC2-0921-Semester2/MobileApp1/OnlineShopApp/app/src/main/res/layout/dialog_progress.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/DELL/Desktop/Josue/BSC2-0921-Semester2/MobileApp1/OnlineShopApp/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.222" />
       </map>

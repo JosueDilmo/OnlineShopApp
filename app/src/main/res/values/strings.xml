@@ -1,7 +1,5 @@
 <resources>
-    <string name="app_name">OnlineShopApp</string>
-    <string name="_24061_online_shop">24061 OnShoppes</string>
-
+    <string name="app_name">24061 OnShoppes</string>
     <string name="content_description">image</string>
     <string name="title_login">LOGIN</string>
     <string name="et_hint_email_id">Email ID</string>
@@ -27,5 +25,17 @@
     <string name="err_msg_agree_terms_and_condition">Please agree with terms and conditions.</string>
     <string name="registry_successful">Registration successful!</string>
     <string name="please_wait">Please wait&#8230;</string>
+    <string name="title_forgot_password">FORGOT PASSWORD?</string>
+    <string name="forgot_password_title_description">Enter your e-mail address and we\'ll send you the steps to reset your password.</string>
+    <string name="btn_lbl_submit">Submit</string>
+    <string name="email_sent_successful">E-mail sent successfully!</string>
+    <string name="register_success">You are registered successfully!</string>
+    <string name="title_complete_profile">PROFILE</string>
+    <string name="et_hint_mobile_number">Mobile Number</string>
+    <string name="rb_lbl_male">MALE</string>
+    <string name="rb_lbl_female">FEMALE</string>
+    <string name="btn_lbl_save">Save</string>
+    <string name="err_msg_enter_mobile_number">Please enter your mobile number.</string>
+    <string name="msg_profile_update_success">Your profile is updated successfully.</string>
 
 </resources>

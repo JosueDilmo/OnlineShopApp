@@ -7,7 +7,7 @@
     tools:context=".activities.SplashScreen"
     android:background="@drawable/splash_online_shop">
 
-    <com.josue.onlineshopapp.utils.MSPTextViewBold
+    <com.josue.onlineshopapp.utils.ONSTextViewBold
         android:id="@+id/splash_screen"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
@@ -15,7 +15,7 @@
         android:background="@color/myRed"
         android:gravity="center"
         android:padding="5dp"
-        android:text="@string/_24061_online_shop"
+        android:text="@string/app_name"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="@dimen/splash_title_text_size"
@@ -24,6 +24,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-    </com.josue.onlineshopapp.utils.MSPTextViewBold>
+    </com.josue.onlineshopapp.utils.ONSTextViewBold>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

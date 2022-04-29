@@ -3,9 +3,11 @@ package com.josue.onlineshopapp.utils
 import android.content.Context
 import android.graphics.Typeface
 import android.util.AttributeSet
-import androidx.appcompat.widget.AppCompatButton
+import android.widget.TextView
+import androidx.appcompat.widget.AppCompatTextView
+import com.josue.onlineshopapp.R
 
-class MSPButton(context: Context, attrs: AttributeSet): AppCompatButton(context,attrs) {
+class ONSTextViewBold(context: Context, attrs: AttributeSet): AppCompatTextView(context, attrs) {
 
     init{
         //call func to apply the font to the components

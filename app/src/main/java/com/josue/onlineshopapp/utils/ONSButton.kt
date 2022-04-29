@@ -3,12 +3,11 @@ package com.josue.onlineshopapp.utils
 import android.content.Context
 import android.graphics.Typeface
 import android.util.AttributeSet
-import androidx.appcompat.widget.AppCompatTextView
+import androidx.appcompat.widget.AppCompatButton
 
+class ONSButton(context: Context, attrs: AttributeSet): AppCompatButton(context,attrs) {
 
-class MSPTextView(context: Context, attrs: AttributeSet) : AppCompatTextView(context, attrs) {
-
-    init {
+    init{
         //call func to apply the font to the components
         applyFont()
     }
@@ -16,8 +15,7 @@ class MSPTextView(context: Context, attrs: AttributeSet) : AppCompatTextView(con
     private fun applyFont() {
         //getting the font file to apply in the text
         val typeface: Typeface =
-            Typeface.createFromAsset(context.assets, "Montserrat-Regular.ttf")
+            Typeface.createFromAsset(context.assets, "Montserrat-Bold.ttf")
         setTypeface(typeface)
-
     }
 }

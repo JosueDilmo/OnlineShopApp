@@ -6,7 +6,7 @@ import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatEditText
 
 
-class MSPEditText(context: Context, attrs: AttributeSet): AppCompatEditText(context,attrs) {
+class ONSEditText(context: Context, attrs: AttributeSet): AppCompatEditText(context,attrs) {
 
     init{
         //call func to apply the font to the components

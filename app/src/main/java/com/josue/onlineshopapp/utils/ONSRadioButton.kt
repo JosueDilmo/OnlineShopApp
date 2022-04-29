@@ -3,14 +3,11 @@ package com.josue.onlineshopapp.utils
 import android.content.Context
 import android.graphics.Typeface
 import android.util.AttributeSet
-import android.widget.TextView
-import androidx.appcompat.widget.AppCompatTextView
-import com.josue.onlineshopapp.R
+import androidx.appcompat.widget.AppCompatRadioButton
 
-class MSPTextViewBold(context: Context, attrs: AttributeSet): AppCompatTextView(context, attrs) {
+class ONSRadioButton(context: Context, attributeSet: AttributeSet):AppCompatRadioButton(context, attributeSet) {
 
-    init{
-        //call func to apply the font to the components
+    init {
         applyFont()
     }
 
