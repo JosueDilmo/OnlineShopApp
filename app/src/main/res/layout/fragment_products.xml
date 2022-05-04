@@ -34,16 +34,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etSearch" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabCart"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="108dp"
-        android:clickable="true"
-        app:layout_constraintBottom_toBottomOf="@+id/rvProduct"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/rvProduct"
-        app:srcCompat="@drawable/ic_shopping_cart" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

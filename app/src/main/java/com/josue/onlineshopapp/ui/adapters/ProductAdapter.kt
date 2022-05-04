@@ -54,13 +54,13 @@ class ProductAdapter (val viewModel: ProductViewModel
             val titletv = findViewById<TextView>(R.id.tv_product_details_title)
             val pricetv = findViewById<TextView>(R.id.tv_product_details_price)
             val categorytv = findViewById<TextView>(R.id.tv_product_details_category)
-            val addtocartbt = findViewById<TextView>(R.id.btn_add_to_cart)
+            //val addtocartbt = findViewById<TextView>(R.id.btn_add_to_cart)
 
 
             Glide.with(this)
                 .load(product.image)
                 .into(ivArticleImage)
-            pricetv.text = "$${product.price.toString()}"
+            pricetv.text = "$${product.price}"
             titletv.text = product.title
             categorytv.text = product.category
 
@@ -76,7 +76,7 @@ class ProductAdapter (val viewModel: ProductViewModel
                 context.startActivity(intent)
             }
 
-            addtocartbt.setOnClickListener {
+            /*addtocartbt.setOnClickListener {
                 CoroutineScope(Dispatchers.IO).launch {
                     val ans=viewModel.checkid(product.id!!).await()
 
@@ -95,7 +95,7 @@ class ProductAdapter (val viewModel: ProductViewModel
 
                 }
 
-            }
+            }*/
         }
 
 

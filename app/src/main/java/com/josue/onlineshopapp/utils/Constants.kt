@@ -9,7 +9,7 @@ object Constants {
     const val USERS: String = "users"
     const val PRODUCTS: String = "products"
 
-    //const val USERS_ID: String = "user_id"
+    const val USERS_ID: String = "user_id"
 
     const val PRODUCT_ID: String = "product_id"
     const val PRODUCT_TITLE: String = "product_title"

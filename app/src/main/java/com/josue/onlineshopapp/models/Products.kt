@@ -17,5 +17,5 @@ data class Products(
     val image: String?,
     val price: Double?,
     val title: String?,
-    var amt:String?
+    var amt: String?,
 ):Serializable

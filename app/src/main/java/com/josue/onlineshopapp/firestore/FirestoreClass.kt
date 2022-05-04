@@ -163,28 +163,49 @@ class FirestoreClass {
             }
     }
 
-    /*fun getProductsList (fragment: Fragment){
+    fun getProductsList (fragment: Fragment){
         mFireStore.collection(Constants.PRODUCTS)
+            .whereEqualTo(Constants.USERS_ID, getCurrentUserID())
             .get()
             .addOnSuccessListener { document ->
                 Log.e( "Product List", document.documents.toString())
                 val productsList: ArrayList<ProductsFirestore> = ArrayList()
                 for (i in document.documents) {
 
-                    val product = i.toObject(ProductsFirestore::class.java)!!
-
+                    val product = i.toObject(ProductsFirestore::class.java)
+                    product!!.product_id = i.id
 
                     productsList.add(product)
                 }
 
                 when (fragment){
                     is DashboardFragment ->{
-                        fragment.successProductListFromFireStore(productsList)
+                        fragment.successProductsListFromFireStore(productsList)
                     }
 
                 }
             }
-    }*/
+    }
+
+    fun deleteProduct(fragment: DashboardFragment, productId: String) {
+
+        mFireStore.collection(Constants.PRODUCTS)
+            .document(productId)
+            .delete()
+            .addOnSuccessListener {
+                fragment.productDeleteSuccess()
+            }
+            .addOnFailureListener { e ->
+
+                fragment.hideProgressDialog()
+
+                Log.e(
+                    fragment.requireActivity().javaClass.simpleName,
+                    "Error while deleting the product.",
+                    e
+                )
+            }
+    }
 
 }
 

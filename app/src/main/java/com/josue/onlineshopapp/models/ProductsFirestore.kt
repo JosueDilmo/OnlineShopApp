@@ -7,9 +7,10 @@ import kotlinx.parcelize.Parcelize
 data class ProductsFirestore(
     val user_id: String = "",
     val user_name: String = "",
+    val category: String = "",
     val title: String = "",
     val price: Double = 0.0,
     val description: String = "",
     val image: String = "",
-    var id: String = "",
+    var product_id: String = "",
 ): Parcelable

@@ -27,7 +27,7 @@ class CartFragment : Fragment(R.layout.fragment_cart) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        mViewModel = (activity as DashboardActivity).mViewModel
+        mViewModel = (activity as MainActivity).mViewModel
 
         setRecyclerview()
 

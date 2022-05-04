@@ -89,10 +89,6 @@ class ProductsFragment : Fragment(R.layout.fragment_products){
             }
         })
 
-       // val fabCart = view.findViewById<FloatingActionButton>(R.id.fabCart)
-        //fabCart.setOnClickListener {
-        //    findNavController(view).navigate(R.id.action_productFragment_to_cartFragment)
-        //}
     }
 
     private fun setRecyclerview(){

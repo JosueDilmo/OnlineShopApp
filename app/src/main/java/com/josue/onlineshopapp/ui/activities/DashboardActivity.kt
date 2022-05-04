@@ -23,14 +23,15 @@ class DashboardActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard)
 
-        supportActionBar!!.setBackgroundDrawable(
-            ContextCompat.getDrawable(this@DashboardActivity,
-            R.drawable.app_gradient_color_background))
-
-
         val productRepository = ProductRepo(ProductDB(this))
         val productViewModelFactory = ProductViewModelFactory(productRepository)
         mViewModel = ViewModelProvider(this,productViewModelFactory).get(ProductViewModel::class.java)
+
+
+
+        supportActionBar!!.setBackgroundDrawable(
+            ContextCompat.getDrawable(this@DashboardActivity,
+            R.drawable.app_gradient_color_background))
 
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
 

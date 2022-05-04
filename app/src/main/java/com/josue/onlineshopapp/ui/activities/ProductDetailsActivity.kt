@@ -31,7 +31,7 @@ class ProductDetailsActivity : BaseActivity(), View.OnClickListener {
         setupActionBar()
 
         if (intent.hasExtra(Constants.PRODUCT_ID)){
-            mProductId = intent.getStringExtra(Constants.PRODUCT_ID).toString()
+            mProductId = intent.getIntArrayExtra(Constants.PRODUCT_ID).toString()
             mProductImage = intent.getStringExtra(Constants.PRODUCT_IMAGE).toString()
             mProductTitle = intent.getStringExtra(Constants.PRODUCT_TITLE).toString()
             mProductDescription = intent.getStringExtra(Constants.PRODUCT_DESCRIPTION).toString()
@@ -66,6 +66,7 @@ class ProductDetailsActivity : BaseActivity(), View.OnClickListener {
             FirestoreClass().getCurrentUserID(),
             username,
             mProductTitle,
+            mProductCategory,
             mProductPrice,
             mProductDescription,
             mProductImage,
