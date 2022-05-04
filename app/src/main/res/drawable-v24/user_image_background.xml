@@ -6,7 +6,5 @@
         android:width="@dimen/user_image_background_stroke"
         android:color="@color/colorSecondaryText" />
 
-    <solid android:color="@color/colorLightGrey" />
-
     <corners android:radius="@dimen/user_image_background_corner_radius" />
 </shape>

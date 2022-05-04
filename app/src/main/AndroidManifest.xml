@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.josue.onlineshopapp">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,30 +12,38 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.OnlineShopApp">
         <activity
-            android:name="com.josue.onlineshopapp.ui.activities.DashboardActivity"
+            android:name=".ui.activities.ProductDetailsActivity"
+            android:exported="false"
+            android:theme="@style/Theme.myNoActionBar" />
+        <activity
+            android:name=".ui.activities.SettingsActivity"
+            android:exported="false"
+            android:theme="@style/Theme.myNoActionBar" />
+        <activity
+            android:name=".ui.activities.DashboardActivity"
             android:exported="false"
             android:label="@string/app_name" />
         <activity
-            android:name="com.josue.onlineshopapp.ui.activities.UserProfileActivity"
+            android:name=".ui.activities.UserProfileActivity"
             android:exported="false"
             android:theme="@style/Theme.myNoActionBar" />
         <activity
-            android:name="com.josue.onlineshopapp.ui.activities.ForgotPasswordActivity"
+            android:name=".ui.activities.ForgotPasswordActivity"
             android:exported="false"
             android:theme="@style/Theme.myNoActionBar" />
         <activity
-            android:name="com.josue.onlineshopapp.ui.activities.BaseActivity"
+            android:name=".ui.activities.BaseActivity"
             android:exported="false" />
         <activity
-            android:name="com.josue.onlineshopapp.ui.activities.RegisterActivity"
+            android:name=".ui.activities.RegisterActivity"
             android:exported="false"
             android:theme="@style/Theme.myNoActionBar" />
         <activity
-            android:name="com.josue.onlineshopapp.ui.activities.LoginActivity"
+            android:name=".ui.activities.LoginActivity"
             android:exported="false"
             android:theme="@style/Theme.myNoActionBar" />
         <activity
-            android:name="com.josue.onlineshopapp.ui.activities.SplashScreen"
+            android:name=".ui.activities.SplashScreen"
             android:exported="true"
             android:theme="@style/Theme.myNoActionBar">
             <intent-filter>
@@ -42,7 +52,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.josue.onlineshopapp.ui.activities.MainActivity" />
+        <activity android:name=".ui.activities.MainActivity" />
     </application>
 
 </manifest>

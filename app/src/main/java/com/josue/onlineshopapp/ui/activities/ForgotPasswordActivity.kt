@@ -16,7 +16,6 @@ class ForgotPasswordActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_forgot_password)
 
-
         //full screen
         @Suppress("DEPRECATION")
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R){
@@ -27,19 +26,9 @@ class ForgotPasswordActivity : BaseActivity() {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN
             )
         }
-
         //function to send email to the user to reset password
         resetPasswordEmail()
-
-
-
     }
-
-
-
-
-
-
     //function to send email to the user to reset password
     private fun resetPasswordEmail(){
         //setting up the toolbar with back button
@@ -81,8 +70,5 @@ class ForgotPasswordActivity : BaseActivity() {
 
         }
     }
-
-
-
 
 }

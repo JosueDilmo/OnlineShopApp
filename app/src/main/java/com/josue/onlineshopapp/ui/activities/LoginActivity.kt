@@ -41,6 +41,7 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
 
     }
 
+    //checking profile and redirecting user to correct screen
     fun userLoggedInSuccess(user: User) {
 
         //progress dialog
@@ -86,6 +87,7 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
 
     }
 
+    //validating and login user
     private fun loginRegisteredUser(){
 
         if(validateLoginDetails()) {

@@ -4,13 +4,14 @@ import android.app.Activity
 import android.content.Context
 import android.content.SharedPreferences
 import android.util.Log
+import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
-import com.josue.onlineshopapp.ui.activities.LoginActivity
-import com.josue.onlineshopapp.ui.activities.RegisterActivity
-import com.josue.onlineshopapp.ui.activities.UserProfileActivity
+import com.josue.onlineshopapp.models.ProductsFirestore
 import com.josue.onlineshopapp.models.User
+import com.josue.onlineshopapp.ui.activities.*
+import com.josue.onlineshopapp.ui.fragments.DashboardFragment
 import com.josue.onlineshopapp.utils.Constants
 
 class FirestoreClass {
@@ -92,12 +93,20 @@ class FirestoreClass {
                     is LoginActivity -> {
                         activity.userLoggedInSuccess(user)
                     }
+
+                    is SettingsActivity -> {
+                        activity.userDetailsSuccess(user)
+                    }
                 }
 
             }
             .addOnFailureListener { e ->
                 when (activity) {
                     is LoginActivity -> {
+                        activity.hideProgressDialog()
+                    }
+
+                    is SettingsActivity -> {
                         activity.hideProgressDialog()
                     }
                 }
@@ -135,6 +144,47 @@ class FirestoreClass {
 
     }
 
+    //function to upload products to Firebase
+    fun uploadProductDetails (activity: ProductDetailsActivity, productInfo: ProductsFirestore){
+        mFireStore.collection(Constants.PRODUCTS)
+            .document()
+            .set(productInfo, SetOptions.merge())
+
+            .addOnSuccessListener {
+                activity.productUploadSuccess()
+            }
+
+            .addOnFailureListener { e ->
+                activity.hideProgressDialog()
+                Log.e(
+                    activity.javaClass.simpleName,
+                    "Error uploading product",
+                    e)
+            }
+    }
+
+    /*fun getProductsList (fragment: Fragment){
+        mFireStore.collection(Constants.PRODUCTS)
+            .get()
+            .addOnSuccessListener { document ->
+                Log.e( "Product List", document.documents.toString())
+                val productsList: ArrayList<ProductsFirestore> = ArrayList()
+                for (i in document.documents) {
+
+                    val product = i.toObject(ProductsFirestore::class.java)!!
+
+
+                    productsList.add(product)
+                }
+
+                when (fragment){
+                    is DashboardFragment ->{
+                        fragment.successProductListFromFireStore(productsList)
+                    }
+
+                }
+            }
+    }*/
 
 }
 

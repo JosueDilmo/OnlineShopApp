@@ -63,8 +63,7 @@ class RegisterActivity : BaseActivity() {
         toolbarRegisterAct.setNavigationOnClickListener {onBackPressed()}
     }
 
-
-     //function to validate the entries of a new user
+    //function to validate the entries of a new user
     private fun validateRegisterDetails(): Boolean {
         return when {
             TextUtils.isEmpty(findViewById<TextView>(R.id.et_first_name).text.toString().trim { it <= ' ' }) -> {
@@ -148,7 +147,7 @@ class RegisterActivity : BaseActivity() {
         }
     }
 
-
+    //function to notify the success result of Firestore
     fun userRegistrationSuccess(){
 
         //progress dialog
@@ -156,7 +155,9 @@ class RegisterActivity : BaseActivity() {
 
         Toast.makeText(this@RegisterActivity, resources.getString(R.string.register_success), Toast.LENGTH_SHORT).show()
 
-    }
+        FirebaseAuth.getInstance().signOut()
+        finish()
 
+    }
 
 }

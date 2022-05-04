@@ -8,11 +8,16 @@ import androidx.core.content.ContextCompat
 import com.google.android.material.snackbar.Snackbar
 import com.josue.onlineshopapp.R
 import android.os.Handler
+import android.widget.ImageView
+import com.squareup.picasso.Picasso
 
 open class BaseActivity : AppCompatActivity() {
 
     //double back pressed to exit
     private var doubleBackToExitPressedOnce = false
+
+    private lateinit var mUserProfileImage: ImageView
+
 
     //global instance for progress dialog
     private lateinit var mProgressDialog: Dialog
@@ -29,6 +34,17 @@ open class BaseActivity : AppCompatActivity() {
             snackBarView.setBackgroundColor(ContextCompat.getColor(this@BaseActivity,R.color.colorSnackBarSuccess))
         }
         snackBar.show()
+    }
+
+    //picasso to get random user pics
+    fun userProfilePhoto(): ImageView? {
+        mUserProfileImage = findViewById(R.id.iv_user_photo)
+        Picasso.get()
+            .load("https://thispersondoesnotexist.com/image")
+            .fit()
+            .centerInside()
+            .into(mUserProfileImage)
+        return mUserProfileImage
     }
 
     //function used to show the progress dialog message to user

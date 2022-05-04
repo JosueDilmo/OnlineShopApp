@@ -8,6 +8,7 @@ import android.os.Handler
 import android.view.WindowInsets
 import android.view.WindowManager.LayoutParams.*
 import com.josue.onlineshopapp.R
+import com.josue.onlineshopapp.firestore.FirestoreClass
 
 class SplashScreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,13 +27,19 @@ class SplashScreen : AppCompatActivity() {
         @Suppress("DEPRECATION")
         Handler().postDelayed(
             {
-                //launch Dashboard activity
-                startActivity(Intent(this@SplashScreen, DashboardActivity::class.java))
-                //call to finish activity
+                // Get the current logged in user id
+                val currentUserID = FirestoreClass().getCurrentUserID()
+
+                if (currentUserID.isNotEmpty()) {
+                    // Launch dashboard screen.
+                    startActivity(Intent(this, DashboardActivity::class.java))
+                } else {
+                    // Launch the Login Activity
+                    startActivity(Intent(this, LoginActivity::class.java))
+                }
                 finish()
             },
-        1500
+            1500
         )
-
     }
 }
