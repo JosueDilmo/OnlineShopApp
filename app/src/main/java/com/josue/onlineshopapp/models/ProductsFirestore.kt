@@ -12,5 +12,5 @@ data class ProductsFirestore(
     val price: Double = 0.0,
     val description: String = "",
     val image: String = "",
-    var product_id: String = "",
+    var product_id: String = "-1"
 ): Parcelable

@@ -15,6 +15,7 @@ import com.bumptech.glide.Glide
 import com.josue.onlineshopapp.R
 import com.josue.onlineshopapp.fakestore.ProductViewModel
 import com.josue.onlineshopapp.models.Products
+import com.josue.onlineshopapp.models.ProductsFirestore
 import com.josue.onlineshopapp.ui.activities.ProductDetailsActivity
 import com.josue.onlineshopapp.utils.Constants
 import kotlinx.coroutines.CoroutineScope
@@ -24,6 +25,7 @@ import kotlinx.coroutines.withContext
 
 class ProductAdapter (val viewModel: ProductViewModel
 ): RecyclerView.Adapter<ProductAdapter.Productviewholder>() {
+
 
     inner class Productviewholder(item: View): RecyclerView.ViewHolder(item)
 
@@ -48,21 +50,20 @@ class ProductAdapter (val viewModel: ProductViewModel
     override fun onBindViewHolder(holder: Productviewholder, position: Int) {
 
         val product = differ.currentList[position]
+
         holder.itemView.apply {
 
-            val ivArticleImage = findViewById<ImageView>(R.id.iv_product_detail_image)
-            val titletv = findViewById<TextView>(R.id.tv_product_details_title)
-            val pricetv = findViewById<TextView>(R.id.tv_product_details_price)
-            val categorytv = findViewById<TextView>(R.id.tv_product_details_category)
-            //val addtocartbt = findViewById<TextView>(R.id.btn_add_to_cart)
-
+            val productImage = findViewById<ImageView>(R.id.iv_product_detail_image)
+            val productTitle = findViewById<TextView>(R.id.tv_product_details_title)
+            val productPrice = findViewById<TextView>(R.id.tv_product_details_price)
+            val productCategory = findViewById<TextView>(R.id.tv_product_details_category)
 
             Glide.with(this)
                 .load(product.image)
-                .into(ivArticleImage)
-            pricetv.text = "$${product.price}"
-            titletv.text = product.title
-            categorytv.text = product.category
+                .into(productImage)
+            productPrice.text = "$${product.price}"
+            productTitle.text = product.title
+            productCategory.text = product.category
 
 
             holder.itemView.setOnClickListener{
@@ -76,26 +77,6 @@ class ProductAdapter (val viewModel: ProductViewModel
                 context.startActivity(intent)
             }
 
-            /*addtocartbt.setOnClickListener {
-                CoroutineScope(Dispatchers.IO).launch {
-                    val ans=viewModel.checkid(product.id!!).await()
-
-                    withContext(Dispatchers.Main){
-                        if(ans==0){
-                            product.amt="1"
-                            Toast.makeText(context,"Item ${titletv.text} is added to cart successfully ${product.amt}",
-                                Toast.LENGTH_LONG).show()
-                            viewModel.upsert(product)
-                            viewModel.increase(product.price!!.toBigDecimal())
-                        }
-                        else{
-                            Toast.makeText(context,"Item already added to the cart", Toast.LENGTH_LONG).show()
-                        }
-                    }
-
-                }
-
-            }*/
         }
 
 

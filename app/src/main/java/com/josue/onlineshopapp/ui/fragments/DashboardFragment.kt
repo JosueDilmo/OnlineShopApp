@@ -17,7 +17,7 @@ import com.josue.onlineshopapp.ui.adapters.DashboardAdapter
 
 class DashboardFragment : BaseFragment() {
 
-    //fun to inflate the option menu in fragment
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //option menu in fragment
@@ -28,6 +28,7 @@ class DashboardFragment : BaseFragment() {
     fun deleteProduct(productID: String){
         showAlertDialogToDeleteProduct(productID)
     }
+
 
     private fun showAlertDialogToDeleteProduct(productID: String) {
 
@@ -56,7 +57,6 @@ class DashboardFragment : BaseFragment() {
         alertDialog.setCancelable(false)
         alertDialog.show()
     }
-
 
 
     fun productDeleteSuccess(){
@@ -92,10 +92,12 @@ class DashboardFragment : BaseFragment() {
        }
     }
 
+
     private fun getProductListFromFireStore(){
         showProgressDialog(resources.getString(R.string.please_wait))
         FirestoreClass().getProductsList(this)
     }
+
 
     override fun onResume() {
         super.onResume()
@@ -105,7 +107,6 @@ class DashboardFragment : BaseFragment() {
     }
 
 
-    //fun for the views
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -116,13 +117,13 @@ class DashboardFragment : BaseFragment() {
         return root
     }
 
-    //fun to inflate the Dashboard menu
+
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.dashboard_menu, menu)
         super.onCreateOptionsMenu(menu, inflater)
     }
 
-    //fun to handle the action items
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val id = item.itemId
 

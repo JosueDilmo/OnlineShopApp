@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
+import com.josue.onlineshopapp.models.CartItem
 import com.josue.onlineshopapp.models.ProductsFirestore
 import com.josue.onlineshopapp.models.User
 import com.josue.onlineshopapp.ui.activities.*
@@ -113,9 +114,6 @@ class FirestoreClass {
                 Log.e( activity.javaClass.simpleName,"Error while getting user details.", e )
             }
 
-
-
-
     }
 
     //function to update the user profile data into the FireStore database
@@ -163,8 +161,10 @@ class FirestoreClass {
             }
     }
 
+
     fun getProductsList (fragment: Fragment){
         mFireStore.collection(Constants.PRODUCTS)
+
             .whereEqualTo(Constants.USERS_ID, getCurrentUserID())
             .get()
             .addOnSuccessListener { document ->
@@ -173,9 +173,11 @@ class FirestoreClass {
                 for (i in document.documents) {
 
                     val product = i.toObject(ProductsFirestore::class.java)
-                    product!!.product_id = i.id
 
-                    productsList.add(product)
+                    product!!.product_id = i.id
+                        productsList.add(product)
+
+
                 }
 
                 when (fragment){
@@ -184,6 +186,22 @@ class FirestoreClass {
                     }
 
                 }
+            }
+    }
+
+    fun addToCart(activity: ProductDetailsActivity, addToCart: CartItem){
+        mFireStore.collection(Constants.CART_ITEMS)
+            .document()
+            .set(addToCart, SetOptions.merge())
+            .addOnSuccessListener {
+                activity.addToCartSuccess()
+            }
+            .addOnFailureListener {
+                e ->
+                activity.hideProgressDialog()
+                Log.e(activity.javaClass.simpleName, "Error while creating doc cart item",
+                e
+                )
             }
     }
 
