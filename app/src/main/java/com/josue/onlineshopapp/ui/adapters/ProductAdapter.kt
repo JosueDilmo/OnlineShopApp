@@ -4,10 +4,8 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -15,13 +13,8 @@ import com.bumptech.glide.Glide
 import com.josue.onlineshopapp.R
 import com.josue.onlineshopapp.fakestore.ProductViewModel
 import com.josue.onlineshopapp.models.Products
-import com.josue.onlineshopapp.models.ProductsFirestore
 import com.josue.onlineshopapp.ui.activities.ProductDetailsActivity
 import com.josue.onlineshopapp.utils.Constants
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 class ProductAdapter (val viewModel: ProductViewModel
 ): RecyclerView.Adapter<ProductAdapter.Productviewholder>() {
@@ -58,9 +51,7 @@ class ProductAdapter (val viewModel: ProductViewModel
             val productPrice = findViewById<TextView>(R.id.tv_product_details_price)
             val productCategory = findViewById<TextView>(R.id.tv_product_details_category)
 
-            Glide.with(this)
-                .load(product.image)
-                .into(productImage)
+            Glide.with(this).load(product.image).into(productImage)
             productPrice.text = "$${product.price}"
             productTitle.text = product.title
             productCategory.text = product.category
@@ -68,7 +59,7 @@ class ProductAdapter (val viewModel: ProductViewModel
 
             holder.itemView.setOnClickListener{
                 val intent = Intent(context, ProductDetailsActivity::class.java)
-                intent.putExtra(Constants.PRODUCT_ID, product.id)
+                intent.putExtra(Constants.EXTRA_PRODUCT_ID, product.id)
                 intent.putExtra(Constants.PRODUCT_TITLE, product.title)
                 intent.putExtra(Constants.PRODUCT_CATEGORY, product.category)
                 intent.putExtra(Constants.PRODUCT_DESCRIPTION, product.description)

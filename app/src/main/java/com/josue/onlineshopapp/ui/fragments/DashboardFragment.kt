@@ -3,7 +3,6 @@ package com.josue.onlineshopapp.ui.fragments
 import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.*
 import android.widget.TextView
 import android.widget.Toast
@@ -11,7 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.josue.onlineshopapp.R
 import com.josue.onlineshopapp.firestore.FirestoreClass
-import com.josue.onlineshopapp.models.ProductsFirestore
+import com.josue.onlineshopapp.models.CartItem
 import com.josue.onlineshopapp.ui.activities.SettingsActivity
 import com.josue.onlineshopapp.ui.adapters.DashboardAdapter
 
@@ -20,7 +19,7 @@ class DashboardFragment : BaseFragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //option menu in fragment
+
         setHasOptionsMenu(true)
 
     }
@@ -71,7 +70,7 @@ class DashboardFragment : BaseFragment() {
     }
 
 
-    fun successProductsListFromFireStore(productList: ArrayList<ProductsFirestore>){
+    fun successProductsListFromFireStore(productList: ArrayList<CartItem>){
         hideProgressDialog()
            val productsRv = view?.findViewById<RecyclerView>(R.id.rv_my_product_items)
            val noProducts = view?.findViewById<TextView>(R.id.tv_no_products_found)

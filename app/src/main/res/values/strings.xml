@@ -51,10 +51,12 @@
 
     <string name="title_cart">CART</string>
     <string name="btn_lbl_add_to_cart">ADD TO CART</string>
+    <string name="btn_lbl_go_to_cart">GO TO CART</string>
+
 
     <string name="title_product_details">PRODUCT DETAILS</string>
     <string name="lbl_product_description">Product Description</string>
-    <string name="product_added_to_cart_success">Product was added successfully!</string>
+    <string name="product_added_to_cart_success">Product was added to cart successfully!</string>
     <string name="no_products_added_yet">No products yet</string>
     <string name="product_delete_success">Product was deleted successfully!</string>
     <string name="delete_dialog_title">Delete</string>

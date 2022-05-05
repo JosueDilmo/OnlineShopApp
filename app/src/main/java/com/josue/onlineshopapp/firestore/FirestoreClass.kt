@@ -4,12 +4,12 @@ import android.app.Activity
 import android.content.Context
 import android.content.SharedPreferences
 import android.util.Log
+import android.view.View
 import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
 import com.josue.onlineshopapp.models.CartItem
-import com.josue.onlineshopapp.models.ProductsFirestore
 import com.josue.onlineshopapp.models.User
 import com.josue.onlineshopapp.ui.activities.*
 import com.josue.onlineshopapp.ui.fragments.DashboardFragment
@@ -143,10 +143,11 @@ class FirestoreClass {
     }
 
     //function to upload products to Firebase
-    fun uploadProductDetails (activity: ProductDetailsActivity, productInfo: ProductsFirestore){
-        mFireStore.collection(Constants.PRODUCTS)
+    fun uploadProductDetails (activity: ProductDetailsActivity,
+                              addToCart: CartItem  ){
+        mFireStore.collection(Constants.CART_ITEMS)
             .document()
-            .set(productInfo, SetOptions.merge())
+            .set(addToCart, SetOptions.merge())
 
             .addOnSuccessListener {
                 activity.productUploadSuccess()
@@ -156,58 +157,68 @@ class FirestoreClass {
                 activity.hideProgressDialog()
                 Log.e(
                     activity.javaClass.simpleName,
-                    "Error uploading product",
+                    "Error uploading product to storage",
                     e)
             }
     }
 
 
     fun getProductsList (fragment: Fragment){
-        mFireStore.collection(Constants.PRODUCTS)
+        mFireStore.collection(Constants.CART_ITEMS)
 
             .whereEqualTo(Constants.USERS_ID, getCurrentUserID())
             .get()
             .addOnSuccessListener { document ->
-                Log.e( "Product List", document.documents.toString())
-                val productsList: ArrayList<ProductsFirestore> = ArrayList()
+                //Log.e( "Product List", document.documents.toString())
+                val cartList: ArrayList<CartItem> = ArrayList()
                 for (i in document.documents) {
 
-                    val product = i.toObject(ProductsFirestore::class.java)
+                    val product = i.toObject(CartItem::class.java)
 
                     product!!.product_id = i.id
-                        productsList.add(product)
-
+                        cartList.add(product)
 
                 }
 
                 when (fragment){
                     is DashboardFragment ->{
-                        fragment.successProductsListFromFireStore(productsList)
+                        fragment.successProductsListFromFireStore(cartList)
                     }
 
                 }
             }
     }
 
-    fun addToCart(activity: ProductDetailsActivity, addToCart: CartItem){
+
+    fun checkIfItemExistInCart(activity: ProductDetailsActivity, productId: String){
+        var visivel = View.VISIBLE
+
         mFireStore.collection(Constants.CART_ITEMS)
-            .document()
-            .set(addToCart, SetOptions.merge())
-            .addOnSuccessListener {
-                activity.addToCartSuccess()
+            .whereEqualTo(Constants.USERS_ID, getCurrentUserID())
+            .whereEqualTo(Constants.PRODUCT_ID, productId)
+            .get()
+            .addOnSuccessListener { document ->
+                if (document.documents.size > 0 ){
+                    activity.productExistsInCart(visivel)
+                } else {
+                    activity.hideProgressDialog()
+                }
+
             }
             .addOnFailureListener {
-                e ->
+                    e ->
                 activity.hideProgressDialog()
-                Log.e(activity.javaClass.simpleName, "Error while creating doc cart item",
-                e
+                Log.e(activity.javaClass.simpleName, "Error while checking cart list",
+                    e
                 )
             }
+
     }
+
 
     fun deleteProduct(fragment: DashboardFragment, productId: String) {
 
-        mFireStore.collection(Constants.PRODUCTS)
+        mFireStore.collection(Constants.CART_ITEMS)
             .document(productId)
             .delete()
             .addOnSuccessListener {
