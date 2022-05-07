@@ -48,21 +48,26 @@
     <string name="btn_lbl_logout">Logout</string>
     <string name="search_by_category">Search by category</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
-
     <string name="title_cart">CART</string>
     <string name="btn_lbl_add_to_cart">ADD TO CART</string>
     <string name="btn_lbl_go_to_cart">GO TO CART</string>
-
-
     <string name="title_product_details">PRODUCT DETAILS</string>
     <string name="lbl_product_description">Product Description</string>
     <string name="product_added_to_cart_success">Product was added to cart successfully!</string>
+    <string name="product_already_in_cart">Product already in cart!</string>
     <string name="no_products_added_yet">No products yet</string>
     <string name="product_delete_success">Product was deleted successfully!</string>
     <string name="delete_dialog_title">Delete</string>
     <string name="delete_dialog_message">Are you sure you want to delete the product?</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
+    <string name="title_my_cart">MY CART</string>
+    <string name="no_cart_item_found">No items found in cart!</string>
+    <string name="lbl_subtotal">Subtotal</string>
+    <string name="lbl_shipping_charge">Shipping Charge</string>
+    <string name="lbl_total_amount">Total Amount</string>
+    <string name="btn_lbl_checkout">Checkout</string>
+    <string name="action_cart">My Cart</string>
 
 
 </resources>

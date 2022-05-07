@@ -4,7 +4,6 @@ import android.app.Activity
 import android.content.Context
 import android.content.SharedPreferences
 import android.util.Log
-import android.view.View
 import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -143,21 +142,19 @@ class FirestoreClass {
     }
 
     //function to upload products to Firebase
-    fun uploadProductDetails (activity: ProductDetailsActivity,
-                              addToCart: CartItem  ){
+    fun uploadProductDetails (activity: ProductDetailsActivity, addToCart: CartItem  ){
+        val productID = addToCart.product_id
         mFireStore.collection(Constants.CART_ITEMS)
-            .document()
+            .document(productID.toString())
             .set(addToCart, SetOptions.merge())
-
             .addOnSuccessListener {
                 activity.productUploadSuccess()
             }
-
             .addOnFailureListener { e ->
                 activity.hideProgressDialog()
                 Log.e(
                     activity.javaClass.simpleName,
-                    "Error uploading product to storage",
+                    "Error uploading product to cart",
                     e)
             }
     }
@@ -165,21 +162,19 @@ class FirestoreClass {
 
     fun getProductsList (fragment: Fragment){
         mFireStore.collection(Constants.CART_ITEMS)
-
             .whereEqualTo(Constants.USERS_ID, getCurrentUserID())
             .get()
             .addOnSuccessListener { document ->
-                //Log.e( "Product List", document.documents.toString())
+                Log.e( "Product List", document.documents.toString())
                 val cartList: ArrayList<CartItem> = ArrayList()
                 for (i in document.documents) {
 
-                    val product = i.toObject(CartItem::class.java)
+                    val productList = i.toObject(CartItem::class.java)
 
-                    product!!.product_id = i.id
-                        cartList.add(product)
+                    productList!!.product_id = i.id.toInt()
+                        cartList.add(productList)
 
                 }
-
                 when (fragment){
                     is DashboardFragment ->{
                         fragment.successProductsListFromFireStore(cartList)
@@ -189,24 +184,68 @@ class FirestoreClass {
             }
     }
 
+    fun getCartList(activity: Activity){
+        mFireStore.collection(Constants.CART_ITEMS)
+            .whereEqualTo(Constants.USERS_ID, getCurrentUserID())
+            .get()
+            .addOnSuccessListener { document ->
+                Log.e( "Cart List", document.documents.toString())
+                val cartList: ArrayList<CartItem> = ArrayList()
+                for (i in document.documents) {
 
-    fun checkIfItemExistInCart(activity: ProductDetailsActivity, productId: String){
-        var visivel = View.VISIBLE
+                    val cartItem = i.toObject(CartItem::class.java)
 
+                    cartItem!!.product_id = i.id.toInt()
+                    cartList.add(cartItem)
+                }
+
+                when (activity) {
+                    is CartListActivity ->{
+                        activity.successCartItemList(cartList)
+                    }
+                }
+
+            }
+            .addOnFailureListener { e ->
+                when (activity) {
+                    is CartListActivity -> {
+                        activity.hideProgressDialog()
+                    }
+                }
+                Log.e(
+                    activity.javaClass.simpleName, "Error while getting cart list",
+                    e
+                )
+            }
+    }
+
+
+    fun checkIfItemExistInCart(activity: ProductDetailsActivity, productId: Int){
         mFireStore.collection(Constants.CART_ITEMS)
             .whereEqualTo(Constants.USERS_ID, getCurrentUserID())
             .whereEqualTo(Constants.PRODUCT_ID, productId)
             .get()
-            .addOnSuccessListener { document ->
-                if (document.documents.size > 0 ){
-                    activity.productExistsInCart(visivel)
+            .addOnSuccessListener{ document ->
+                //Log.e("add on success listener", "add on success listener")
+                if (document.documents.size == 0){
+                    //Log.e("if state", "if state")
+                    activity.productNotInCart()
                 } else {
-                    activity.hideProgressDialog()
+                    //Log.e("else state", "else state")
+                    for (i in document.documents){
+                        //Log.e("for loop", "for loop")
+                        val cartList = i.toObject(CartItem::class.java)
+                            if (cartList!!.product_id == i.id.toInt()){
+                                //Log.e(" 2 if state", "2 if state")
+                                activity.productExistsInCart()
+                            } else {
+                                //Log.e("2 else state", "2 else state")
+                                activity.productNotInCart()
+                            }
+                    }
                 }
-
             }
-            .addOnFailureListener {
-                    e ->
+            .addOnFailureListener { e ->
                 activity.hideProgressDialog()
                 Log.e(activity.javaClass.simpleName, "Error while checking cart list",
                     e
@@ -216,10 +255,10 @@ class FirestoreClass {
     }
 
 
-    fun deleteProduct(fragment: DashboardFragment, productId: String) {
+    fun deleteProduct(fragment: DashboardFragment, productId: Int) {
 
         mFireStore.collection(Constants.CART_ITEMS)
-            .document(productId)
+            .document(productId.toString())
             .delete()
             .addOnSuccessListener {
                 fragment.productDeleteSuccess()

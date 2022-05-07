@@ -13,6 +13,7 @@ import com.bumptech.glide.Glide
 import com.josue.onlineshopapp.R
 import com.josue.onlineshopapp.fakestore.ProductViewModel
 import com.josue.onlineshopapp.models.Products
+import com.josue.onlineshopapp.ui.activities.BaseActivity
 import com.josue.onlineshopapp.ui.activities.ProductDetailsActivity
 import com.josue.onlineshopapp.utils.Constants
 
@@ -59,7 +60,7 @@ class ProductAdapter (val viewModel: ProductViewModel
 
             holder.itemView.setOnClickListener{
                 val intent = Intent(context, ProductDetailsActivity::class.java)
-                intent.putExtra(Constants.EXTRA_PRODUCT_ID, product.id)
+                intent.putExtra(Constants.PRODUCT_ID, product.id)
                 intent.putExtra(Constants.PRODUCT_TITLE, product.title)
                 intent.putExtra(Constants.PRODUCT_CATEGORY, product.category)
                 intent.putExtra(Constants.PRODUCT_DESCRIPTION, product.description)

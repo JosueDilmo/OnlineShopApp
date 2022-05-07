@@ -1,6 +1,8 @@
 package com.josue.onlineshopapp.ui.activities
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
@@ -13,7 +15,7 @@ import com.josue.onlineshopapp.firestore.FirestoreClass
 import com.josue.onlineshopapp.models.CartItem
 import com.josue.onlineshopapp.utils.Constants
 
-class ProductDetailsActivity : BaseActivity(), View.OnClickListener {
+class ProductDetailsActivity : BaseActivity() {
 
     private var mProductId: Int = -1
     private var mProductImage: String = ""
@@ -21,6 +23,7 @@ class ProductDetailsActivity : BaseActivity(), View.OnClickListener {
     private var mProductCategory: String = ""
     private var mProductDescription: String = ""
     private var mProductPrice: Double = 0.0
+    private var mProductUserId: String = ""
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,9 +32,10 @@ class ProductDetailsActivity : BaseActivity(), View.OnClickListener {
 
         setupActionBar()
 
-        if (intent.hasExtra(Constants.EXTRA_PRODUCT_ID)){
-            mProductId = intent.getIntExtra(Constants.EXTRA_PRODUCT_ID,-1)
+        if (intent.hasExtra(Constants.PRODUCT_ID)){
+            mProductId = intent.getIntExtra(Constants.PRODUCT_ID, -1)
             mProductTitle = intent.getStringExtra(Constants.PRODUCT_TITLE).toString()
+            mProductUserId = intent.getStringExtra(Constants.EXTRA_PRODUCT_OWNER_ID).toString()
             mProductCategory = intent.getStringExtra(Constants.PRODUCT_CATEGORY).toString()
             mProductDescription = intent.getStringExtra(Constants.PRODUCT_DESCRIPTION).toString()
             mProductPrice = intent.getDoubleExtra(Constants.PRODUCT_PRICE, 0.0)
@@ -39,29 +43,14 @@ class ProductDetailsActivity : BaseActivity(), View.OnClickListener {
 
         }
 
-       /* if(FirestoreClass().getCurrentUserID() == CartItem().user_id){
-        }else{*/
-            FirestoreClass().checkIfItemExistInCart(this, mProductId.toString())
-        //}
-
         displayProductDetails()
 
-    }
-
-    override fun onClick(v: View?) {
-        if(v!=null) {
-            when (v.id) {
-                R.id.btn_add_to_cart -> {
-                    uploadProductDetails()
-                }
-            }
-        }
     }
 
     private fun uploadProductDetails(){
         val cartItem = CartItem(
             FirestoreClass().getCurrentUserID(),
-            mProductId.toString(),
+            mProductId,
             mProductTitle,
             mProductPrice,
             mProductDescription,
@@ -69,9 +58,6 @@ class ProductDetailsActivity : BaseActivity(), View.OnClickListener {
             mProductImage,
             Constants.DEFAULT_CART_QUANTITY
         )
-
-
-        showProgressDialog(resources.getString(R.string.please_wait))
         FirestoreClass().uploadProductDetails(this, cartItem)
 
     }
@@ -83,27 +69,40 @@ class ProductDetailsActivity : BaseActivity(), View.OnClickListener {
             resources.getString(R.string.product_added_to_cart_success),
             Toast.LENGTH_SHORT
         ).show()
-        //finish()
-        val btnAddToCart = findViewById<Button>(R.id.btn_add_to_cart)
-        btnAddToCart.visibility = View.GONE
-        val btnGoToCart = findViewById<Button>(R.id.btn_go_to_cart)
-        btnGoToCart.visibility = View.VISIBLE
+        finish()
     }
 
 
     fun productExistsInCart() {
-        hideProgressDialog()
-        var btnGoToCart = findViewById<Button>(R.id.btn_go_to_cart)
-        btnGoToCart.visibility = View.VISIBLE
-        var btnAddToCart = findViewById<Button>(R.id.btn_add_to_cart)
-        btnAddToCart.visibility = View.VISIBLE
+        Toast.makeText(
+            this@ProductDetailsActivity,
+            resources.getString(R.string.product_already_in_cart),
+            Toast.LENGTH_SHORT
+        ).show()
+        var btnGOTOCart = findViewById<Button>(R.id.btn_go_to_cart)
+            btnGOTOCart.visibility = View.VISIBLE
+                btnGOTOCart.setOnClickListener {
+                    startActivity(Intent(this@ProductDetailsActivity, CartListActivity::class.java))
+                }
+        var btnADDTOCart = findViewById<Button>(R.id.btn_add_to_cart)
+            btnADDTOCart.visibility = View.GONE
     }
 
+    fun productNotInCart(){
+        var btnGOTOCart = findViewById<Button>(R.id.btn_go_to_cart)
+            btnGOTOCart.visibility = View.VISIBLE
+                btnGOTOCart.setOnClickListener {
+                    startActivity(Intent(this@ProductDetailsActivity, CartListActivity::class.java))
+            }
+        var btnADDTOCart = findViewById<Button>(R.id.btn_add_to_cart)
+            btnADDTOCart.visibility = View.VISIBLE
+                btnADDTOCart.setOnClickListener{
+                    uploadProductDetails()
+                    showProgressDialog(resources.getString(R.string.please_wait))
+                }
+    }
 
     private fun displayProductDetails(){
-
-        showProgressDialog(resources.getString(R.string.please_wait))
-
         val productImage = findViewById<ImageView>(R.id.iv_product_detail_image)
         Glide.with(this@ProductDetailsActivity).load(mProductImage).into(productImage)
         val productCategory = findViewById<TextView>(R.id.tv_product_details_category)
@@ -117,16 +116,11 @@ class ProductDetailsActivity : BaseActivity(), View.OnClickListener {
         productCategory.text = mProductCategory
 
 
-        var btnAddToCart = findViewById<Button>(R.id.btn_add_to_cart)
-        btnAddToCart.setOnClickListener(this)
-        var btnGoToCart = findViewById<Button>(R.id.btn_go_to_cart)
-        btnGoToCart.setOnClickListener(this)
-
+        FirestoreClass().checkIfItemExistInCart(this, mProductId)
     }
 
 
     private fun setupActionBar(){
-        //setting up the toolbar with back button
         val toolbarProductDetailsAct = findViewById<Toolbar>(R.id.toolbar_product_details_activity)
 
         setSupportActionBar(toolbarProductDetailsAct)
@@ -139,5 +133,6 @@ class ProductDetailsActivity : BaseActivity(), View.OnClickListener {
 
         toolbarProductDetailsAct.setNavigationOnClickListener {onBackPressed()}
     }
+
 
 }

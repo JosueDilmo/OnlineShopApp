@@ -33,7 +33,7 @@
             android:minWidth="48dp"
             android:minHeight="48dp"
             android:padding="@dimen/delete_padding"
-            android:src="@drawable/ic_delete"
+            android:src="@drawable/ic_vector_delete"
             app:layout_constraintBottom_toBottomOf="@+id/iv_product_detail_image"
             app:layout_constraintEnd_toEndOf="@+id/iv_product_detail_image" />
 

@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.josue.onlineshopapp.R
 import com.josue.onlineshopapp.firestore.FirestoreClass
 import com.josue.onlineshopapp.models.CartItem
+import com.josue.onlineshopapp.ui.activities.CartListActivity
 import com.josue.onlineshopapp.ui.activities.SettingsActivity
 import com.josue.onlineshopapp.ui.adapters.DashboardAdapter
 
@@ -24,12 +25,12 @@ class DashboardFragment : BaseFragment() {
 
     }
 
-    fun deleteProduct(productID: String){
+    fun deleteProduct(productID: Int){
         showAlertDialogToDeleteProduct(productID)
     }
 
 
-    private fun showAlertDialogToDeleteProduct(productID: String) {
+    private fun showAlertDialogToDeleteProduct(productID: Int) {
 
         val builder = AlertDialog.Builder(requireActivity())
 
@@ -131,6 +132,10 @@ class DashboardFragment : BaseFragment() {
             R.id.action_settings -> {
 
                 startActivity(Intent(activity, SettingsActivity::class.java))
+            }
+
+            R.id.action_cart -> {
+                startActivity(Intent(activity, CartListActivity::class.java))
             }
         }
         return super.onOptionsItemSelected(item)

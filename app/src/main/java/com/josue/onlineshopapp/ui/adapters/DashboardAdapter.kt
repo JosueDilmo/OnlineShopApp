@@ -54,7 +54,7 @@ open class DashboardAdapter(private val context: Context,
 
             holder.itemView.setOnClickListener {
                 val intent = Intent (context, ProductDetailsActivity::class.java)
-                intent.putExtra(Constants.EXTRA_PRODUCT_ID, cartItem.product_id)
+                intent.putExtra(Constants.PRODUCT_ID, cartItem.product_id)
                 intent.putExtra(Constants.EXTRA_PRODUCT_OWNER_ID, cartItem.user_id)
                 intent.putExtra(Constants.PRODUCT_TITLE, cartItem.title)
                 intent.putExtra(Constants.PRODUCT_CATEGORY, cartItem.category)

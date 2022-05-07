@@ -12,8 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.OnlineShopApp">
         <activity
-            android:name=".ui.activities.ProductDetailsDashboard"
-            android:exported="false" />
+            android:name=".ui.activities.CartListActivity"
+            android:exported="false"
+            android:theme="@style/Theme.myNoActionBar"/>
         <activity
             android:name=".ui.activities.ProductDetailsActivity"
             android:exported="false"
