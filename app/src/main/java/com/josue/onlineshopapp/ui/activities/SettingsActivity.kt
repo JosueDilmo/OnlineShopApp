@@ -6,6 +6,7 @@ import android.provider.SyncStateContract
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
 import com.google.firebase.auth.FirebaseAuth
@@ -29,7 +30,7 @@ class SettingsActivity : BaseActivity(), View.OnClickListener{
 
         findViewById<TextView>(R.id.tv_edit).setOnClickListener(this)
         findViewById<Button>(R.id.btn_logout).setOnClickListener(this)
-
+        findViewById<LinearLayout>(R.id.ll_address).setOnClickListener(this)
     }
 
 
@@ -40,7 +41,7 @@ class SettingsActivity : BaseActivity(), View.OnClickListener{
         showProgressDialog(resources.getString(R.string.please_wait))
 
         //user details
-        FirestoreClass().getUserDetails(this)
+        FirestoreClass().getUserDetails(this@SettingsActivity)
     }
 
     //display user info
@@ -91,10 +92,8 @@ class SettingsActivity : BaseActivity(), View.OnClickListener{
                     val intent = Intent(this@SettingsActivity, UserProfileActivity::class.java)
                     intent.putExtra(Constants.EXTRA_USER_DETAILS, mUserDetails)
                     startActivity(intent)
-                    //todo check if is closing act
                     finish()
                 }
-
 
                 R.id.btn_logout -> {
                     FirebaseAuth.getInstance().signOut()
@@ -104,6 +103,12 @@ class SettingsActivity : BaseActivity(), View.OnClickListener{
                     startActivity(intent)
                     finish()
                 }
+
+                R.id.ll_address -> {
+                    val intent = Intent(this@SettingsActivity, AddressListActivity::class.java)
+                    startActivity(intent)
+                }
+
             }
         }
     }

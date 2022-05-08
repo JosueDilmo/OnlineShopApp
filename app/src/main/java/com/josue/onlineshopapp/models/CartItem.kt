@@ -13,5 +13,4 @@ data class CartItem (
     val category: String = "",
     val image: String = "",
     var cart_quantity: String = "",
-    var id: String = "",
 ): Parcelable

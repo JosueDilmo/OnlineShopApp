@@ -20,13 +20,21 @@
         <entry key="..\:/Users/DELL/Desktop/Josue/BSC2-0921-Semester2/MobileApp1/OnlineShopApp/app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.25" />
         <entry key="..\:/Users/DELL/Desktop/Josue/BSC2-0921-Semester2/MobileApp1/OnlineShopApp/app/src/main/res/drawable/ic_shopping_cart.xml" value="0.25" />
         <entry key="..\:/Users/DELL/Desktop/Josue/BSC2-0921-Semester2/MobileApp1/OnlineShopApp/app/src/main/res/drawable/ic_vector_chevron_right.xml" value="0.2485" />
+        <entry key="..\:/Users/DELL/Desktop/Josue/BSC2-0921-Semester2/MobileApp1/OnlineShopApp/app/src/main/res/drawable/ic_vector_delete.xml" value="0.25" />
+        <entry key="..\:/Users/DELL/Desktop/Josue/BSC2-0921-Semester2/MobileApp1/OnlineShopApp/app/src/main/res/drawable/ic_vector_delete_white.xml" value="0.25" />
+        <entry key="..\:/Users/DELL/Desktop/Josue/BSC2-0921-Semester2/MobileApp1/OnlineShopApp/app/src/main/res/drawable/ic_vector_edit.xml" value="0.25" />
         <entry key="..\:/Users/DELL/Desktop/Josue/BSC2-0921-Semester2/MobileApp1/OnlineShopApp/app/src/main/res/drawable/item_grey_border_background.xml" value="0.2485" />
+        <entry key="..\:/Users/DELL/Desktop/Josue/BSC2-0921-Semester2/MobileApp1/OnlineShopApp/app/src/main/res/drawable/item_primary_color_border_background.xml" value="0.25" />
+        <entry key="..\:/Users/DELL/Desktop/Josue/BSC2-0921-Semester2/MobileApp1/OnlineShopApp/app/src/main/res/layout/activity_add_edit_address.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/DELL/Desktop/Josue/BSC2-0921-Semester2/MobileApp1/OnlineShopApp/app/src/main/res/layout/activity_address_list.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/DELL/Desktop/Josue/BSC2-0921-Semester2/MobileApp1/OnlineShopApp/app/src/main/res/layout/activity_base.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/DELL/Desktop/Josue/BSC2-0921-Semester2/MobileApp1/OnlineShopApp/app/src/main/res/layout/activity_cart_list.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/DELL/Desktop/Josue/BSC2-0921-Semester2/MobileApp1/OnlineShopApp/app/src/main/res/layout/activity_checkout.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/DELL/Desktop/Josue/BSC2-0921-Semester2/MobileApp1/OnlineShopApp/app/src/main/res/layout/activity_dashboard.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/DELL/Desktop/Josue/BSC2-0921-Semester2/MobileApp1/OnlineShopApp/app/src/main/res/layout/activity_forgot_password.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/DELL/Desktop/Josue/BSC2-0921-Semester2/MobileApp1/OnlineShopApp/app/src/main/res/layout/activity_login.xml" value="0.2" />
         <entry key="..\:/Users/DELL/Desktop/Josue/BSC2-0921-Semester2/MobileApp1/OnlineShopApp/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/DELL/Desktop/Josue/BSC2-0921-Semester2/MobileApp1/OnlineShopApp/app/src/main/res/layout/activity_order_details.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/DELL/Desktop/Josue/BSC2-0921-Semester2/MobileApp1/OnlineShopApp/app/src/main/res/layout/activity_product_details.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/DELL/Desktop/Josue/BSC2-0921-Semester2/MobileApp1/OnlineShopApp/app/src/main/res/layout/activity_register.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/DELL/Desktop/Josue/BSC2-0921-Semester2/MobileApp1/OnlineShopApp/app/src/main/res/layout/activity_settings.xml" value="0.264" />
@@ -34,10 +42,13 @@
         <entry key="..\:/Users/DELL/Desktop/Josue/BSC2-0921-Semester2/MobileApp1/OnlineShopApp/app/src/main/res/layout/activity_user_profile.xml" value="0.41708542713567837" />
         <entry key="..\:/Users/DELL/Desktop/Josue/BSC2-0921-Semester2/MobileApp1/OnlineShopApp/app/src/main/res/layout/cart_view.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/DELL/Desktop/Josue/BSC2-0921-Semester2/MobileApp1/OnlineShopApp/app/src/main/res/layout/dialog_progress.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/DELL/Desktop/Josue/BSC2-0921-Semester2/MobileApp1/OnlineShopApp/app/src/main/res/layout/fragment_base.xml" value="0.11302083333333333" />
         <entry key="..\:/Users/DELL/Desktop/Josue/BSC2-0921-Semester2/MobileApp1/OnlineShopApp/app/src/main/res/layout/fragment_cart.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/DELL/Desktop/Josue/BSC2-0921-Semester2/MobileApp1/OnlineShopApp/app/src/main/res/layout/fragment_dashboard.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/DELL/Desktop/Josue/BSC2-0921-Semester2/MobileApp1/OnlineShopApp/app/src/main/res/layout/fragment_orders.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/DELL/Desktop/Josue/BSC2-0921-Semester2/MobileApp1/OnlineShopApp/app/src/main/res/layout/fragment_products.xml" value="0.2" />
+        <entry key="..\:/Users/DELL/Desktop/Josue/BSC2-0921-Semester2/MobileApp1/OnlineShopApp/app/src/main/res/layout/item_address_layout.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/DELL/Desktop/Josue/BSC2-0921-Semester2/MobileApp1/OnlineShopApp/app/src/main/res/layout/item_list_layout.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/DELL/Desktop/Josue/BSC2-0921-Semester2/MobileApp1/OnlineShopApp/app/src/main/res/layout/product_details_dashboard.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/DELL/Desktop/Josue/BSC2-0921-Semester2/MobileApp1/OnlineShopApp/app/src/main/res/layout/product_view.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/DELL/Desktop/Josue/BSC2-0921-Semester2/MobileApp1/OnlineShopApp/app/src/main/res/layout/product_view_dashboard.xml" value="0.25416666666666665" />

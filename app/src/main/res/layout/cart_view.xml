@@ -72,7 +72,7 @@
                 android:orientation="horizontal">
 
                 <ImageButton
-                    android:id="@+id/ib_remove_cart_item"
+                    android:id="@+id/decrease_cart_item"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/ib_remove_cart_item_marginStartEnd"
@@ -99,7 +99,7 @@
                     tools:text="1" />
 
                 <ImageButton
-                    android:id="@+id/ib_add_cart_item"
+                    android:id="@+id/increase_cart_item"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/ib_add_cart_item_marginStart"
@@ -115,7 +115,7 @@
     </LinearLayout>
 
     <ImageButton
-        android:id="@+id/ib_delete_cart_item"
+        android:id="@+id/delete_cart_item"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"

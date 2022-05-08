@@ -83,6 +83,7 @@ class ProductDetailsActivity : BaseActivity() {
             btnGOTOCart.visibility = View.VISIBLE
                 btnGOTOCart.setOnClickListener {
                     startActivity(Intent(this@ProductDetailsActivity, CartListActivity::class.java))
+                    finish()
                 }
         var btnADDTOCart = findViewById<Button>(R.id.btn_add_to_cart)
             btnADDTOCart.visibility = View.GONE
@@ -93,6 +94,7 @@ class ProductDetailsActivity : BaseActivity() {
             btnGOTOCart.visibility = View.VISIBLE
                 btnGOTOCart.setOnClickListener {
                     startActivity(Intent(this@ProductDetailsActivity, CartListActivity::class.java))
+                    finish()
             }
         var btnADDTOCart = findViewById<Button>(R.id.btn_add_to_cart)
             btnADDTOCart.visibility = View.VISIBLE

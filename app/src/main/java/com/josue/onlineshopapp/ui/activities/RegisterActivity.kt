@@ -5,10 +5,7 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.view.WindowInsets
 import android.view.WindowManager
-import android.widget.Button
-import android.widget.CheckBox
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.widget.Toolbar
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.AuthResult
@@ -66,32 +63,32 @@ class RegisterActivity : BaseActivity() {
     //function to validate the entries of a new user
     private fun validateRegisterDetails(): Boolean {
         return when {
-            TextUtils.isEmpty(findViewById<TextView>(R.id.et_first_name).text.toString().trim { it <= ' ' }) -> {
+            TextUtils.isEmpty(findViewById<EditText>(R.id.et_first_name).text.toString().trim { it <= ' ' }) -> {
                 showErrorSnackBar(resources.getString(R.string.err_msg_enter_first_name), true)
                 false
             }
 
-            TextUtils.isEmpty(findViewById<TextView>(R.id.et_last_name).text.toString().trim { it <= ' ' }) -> {
+            TextUtils.isEmpty(findViewById<EditText>(R.id.et_last_name).text.toString().trim { it <= ' ' }) -> {
                 showErrorSnackBar(resources.getString(R.string.err_msg_enter_last_name), true)
                 false
             }
 
-            TextUtils.isEmpty(findViewById<TextView>(R.id.et_register_email).text.toString().trim { it <= ' ' }) -> {
+            TextUtils.isEmpty(findViewById<EditText>(R.id.et_register_email).text.toString().trim { it <= ' ' }) -> {
                 showErrorSnackBar(resources.getString(R.string.err_msg_enter_email), true)
                 false
             }
 
-            TextUtils.isEmpty(findViewById<TextView>(R.id.et_register_password).text.toString().trim { it <= ' ' }) -> {
+            TextUtils.isEmpty(findViewById<EditText>(R.id.et_register_password).text.toString().trim { it <= ' ' }) -> {
                 showErrorSnackBar(resources.getString(R.string.err_msg_enter_password), true)
                 false
             }
 
-            TextUtils.isEmpty(findViewById<TextView>(R.id.et_confirm_password).text.toString().trim { it <= ' ' }) -> {
+            TextUtils.isEmpty(findViewById<EditText>(R.id.et_confirm_password).text.toString().trim { it <= ' ' }) -> {
                 showErrorSnackBar(resources.getString(R.string.err_msg_enter_confirm_password), true)
                 false
             }
 
-            findViewById<TextView>(R.id.et_register_password).text.toString().trim { it <= ' ' } != findViewById<TextView>(R.id.et_confirm_password).text.toString()
+            findViewById<EditText>(R.id.et_register_password).text.toString().trim { it <= ' ' } != findViewById<EditText>(R.id.et_confirm_password).text.toString()
                 .trim { it <= ' ' } -> {
                 showErrorSnackBar(resources.getString(R.string.err_msg_password_and_confirm_password_mismatch), true)
                 false
@@ -115,8 +112,8 @@ class RegisterActivity : BaseActivity() {
             //show progress dialog
             showProgressDialog(resources.getString(R.string.please_wait))
 
-            val email: String = findViewById<TextView>(R.id.et_register_email).text.toString().trim { it <= ' ' }
-            val password: String = findViewById<TextView>(R.id.et_register_password).text.toString().trim { it <= ' ' }
+            val email: String = findViewById<EditText>(R.id.et_register_email).text.toString().trim { it <= ' ' }
+            val password: String = findViewById<EditText>(R.id.et_register_password).text.toString().trim { it <= ' ' }
 
             //create an instance and register a user with email and password
             FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)
@@ -130,9 +127,9 @@ class RegisterActivity : BaseActivity() {
 
                             val user = User(
                                 firebaseUser.uid,
-                                findViewById<TextView>(R.id.et_first_name).text.toString().trim { it <= ' '},
-                                findViewById<TextView>(R.id.et_last_name).text.toString().trim { it <= ' ' },
-                                findViewById<TextView>(R.id.et_register_email).text.toString().trim { it <= ' ' }
+                                findViewById<EditText>(R.id.et_first_name).text.toString().trim { it <= ' '},
+                                findViewById<EditText>(R.id.et_last_name).text.toString().trim { it <= ' ' },
+                                findViewById<EditText>(R.id.et_register_email).text.toString().trim { it <= ' ' }
                             )
 
                             //sending user info to fun registerUser inside FirestoreClass
